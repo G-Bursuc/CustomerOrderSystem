@@ -24,6 +24,6 @@ public class CustomerScreen extends JFrame{
 	}
 	
 	public void updateCustomer() {
-		
+		String name;
 	}
 }
