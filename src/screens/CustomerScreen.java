@@ -22,4 +22,8 @@ public class CustomerScreen extends JFrame{
 		setLocationRelativeTo(null);
 		setDefaultCloseOperation(DISPOSE_ON_CLOSE);
 	}
+	
+	public void updateCustomer() {
+		
+	}
 }
