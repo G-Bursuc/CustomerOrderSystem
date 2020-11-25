@@ -1,9 +1,11 @@
+package screens;
 import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
 
 import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
@@ -13,12 +15,21 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 import net.miginfocom.swing.MigLayout;
+import objects.Customer;
+import objects.Order;
+import objects.Product;
+import objects.Supplier;
 
-public class HomeFrame extends JFrame{
-
-	public HomeFrame() {
+public class HomeScreen extends JFrame{
+	//global arraylists that store the list of objects needed in the program
+	ArrayList<Customer> customerList = new ArrayList<Customer>();
+	ArrayList<Order> orderList = new ArrayList<Order>();
+	ArrayList<Supplier> supplierList = new ArrayList<Supplier>();
+	ArrayList<Product> productList = new ArrayList<Product>();
+	
+	public HomeScreen() {
+		// create and setup the panel, buttons and text labels
 		JPanel panel = new JPanel();
-		BufferedImage myPicture = null;
 		JButton homeButton = new JButton("Home");
 		JButton customerButton = new JButton("Customers");
 		JButton supplierButton = new JButton("Suppliers");
@@ -29,96 +40,81 @@ public class HomeFrame extends JFrame{
 		JLabel label2 = new JLabel();
 		JLabel label3 = new JLabel();
 		JLabel label4 = new JLabel();
-		int width = 200;
-		int height = 200;
-		
 		label1.setText("<html><body><p>My name is George and I love to code!</p></body></html>");
 		label2.setText("<html><body><p>I'm Iuliana and I'm friendly and organised!</p></body></html>");
 		label3.setText("<html><body><p>Hey Josh here, always up for hard work!</p></body></html>");
 		label4.setText("<html><body><p>My name is Tami and I like to get things done!</p></body></html>");
 		
-		try {
-			myPicture = ImageIO.read(new File("images/George.png"));
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
+		// create and setup the pictures
+		BufferedImage myPicture = null; // used to read the image on disk
+		Image img; // used to resize the image
+		// image size dimensions
+		int width = 200;
+		int height = 200;
+		// labels used to house the images
+		JLabel picLabel1 = null;
+		JLabel picLabel2 = null;
+		JLabel picLabel3 = null;
+		JLabel picLabel4 = null;
 		
-		Image img1 = myPicture.getScaledInstance(width, height, Image.SCALE_DEFAULT);
-		JLabel picLabel1 = new JLabel(new ImageIcon(img1));
+		// creating and displaying each picture
+		try {
+		myPicture = ImageIO.read(new File("images/George.png")); // read image from disk
+		img = myPicture.getScaledInstance(width, height, Image.SCALE_DEFAULT); // resize the image
+		picLabel1 = new JLabel(new ImageIcon(img)); // store image in label to be displayed
 
-		try {
-			myPicture = ImageIO.read(new File("images/Iuliana.png"));
+		myPicture = ImageIO.read(new File("images/Iuliana.png"));
+		img = myPicture.getScaledInstance(width, height, Image.SCALE_DEFAULT);
+		picLabel2 = new JLabel(new ImageIcon(img));
+
+		myPicture = ImageIO.read(new File("images/Josh.png"));
+		img = myPicture.getScaledInstance(width, height, Image.SCALE_DEFAULT);
+		picLabel3 = new JLabel(new ImageIcon(img));
+		
+		myPicture = ImageIO.read(new File("images/Tami.png"));
+		img = myPicture.getScaledInstance(width, height, Image.SCALE_DEFAULT);
+		picLabel4 = new JLabel(new ImageIcon(img));
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
 		
-		Image img2 = myPicture.getScaledInstance(width, height, Image.SCALE_DEFAULT);
-		JLabel picLabel2 = new JLabel(new ImageIcon(img2));
-		
-		try {
-			myPicture = ImageIO.read(new File("images/Josh.png"));
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-		
-		Image img3 = myPicture.getScaledInstance(width, height, Image.SCALE_DEFAULT);
-		JLabel picLabel3 = new JLabel(new ImageIcon(img3));
-		
-		try {
-			myPicture = ImageIO.read(new File("images/Tami.png"));
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-		
-		Image img4 = myPicture.getScaledInstance(width, height, Image.SCALE_DEFAULT);
-		JLabel picLabel4 = new JLabel(new ImageIcon(img4));
-		
+		// BUTTONS
+		// displays the customer window
 		customerButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				JFrame customerFrame = new JFrame();
-				customerFrame.setVisible(true);
-				customerFrame.setSize(400, 400);
-				customerFrame.setTitle("Customer Window");
-				customerFrame.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+				new CustomerScreen(customerList);
 			}
 		});
 		
+		// displays the supplier window
 		supplierButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				JFrame supplierFrame = new JFrame();
-				supplierFrame.setVisible(true);
-				supplierFrame.setSize(400, 400);
-				supplierFrame.setTitle("Supplier Window");
-				supplierFrame.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+				new SupplierScreen(supplierList);
 			}
 		});
 		
+		// displays the product window
 		stockButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				JFrame stockFrame = new JFrame();
-				stockFrame.setVisible(true);
-				stockFrame.setSize(400, 400);
-				stockFrame.setTitle("Stock Window");
-				stockFrame.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+				new ProductScreen(productList);
 			}
 		});
 		
+		// displays the order window
 		ordersButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				JFrame ordersFrame = new JFrame();
-				ordersFrame.setVisible(true);
-				ordersFrame.setSize(400, 400);
-				ordersFrame.setTitle("Order Window");
-				ordersFrame.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+				new OrderScreen(orderList);
 			}
 		});
 		
+		// closes the program
 		exitButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				dispose();
 			}
 		});
 		
+		// add elements to the panel and configure miglayout
 		panel.setLayout(new MigLayout("", "275!"));
 		panel.add(homeButton, "split 3, align center");
 		panel.add(customerButton);
@@ -135,13 +131,17 @@ public class HomeFrame extends JFrame{
 		panel.add(label3, "align center");
 		panel.add(label4, "align center");
 		add(panel);
+		
+		// set frame properties
 		setTitle("Control Management System");
 		setSize(580, 600);
 		setVisible(true);
+		setLocationRelativeTo(null);
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 	}
 	
+	// constructor
 	public static void main(String[] args) {
-		new HomeFrame();
+		new HomeScreen();
 	}
 }
