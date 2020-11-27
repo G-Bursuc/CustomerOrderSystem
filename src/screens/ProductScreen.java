@@ -4,6 +4,7 @@ import objects.Product;
 import java.util.ArrayList;
 
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 public class ProductScreen  extends JFrame{
@@ -14,6 +15,10 @@ public class ProductScreen  extends JFrame{
 		JPanel panel = new JPanel();
 		
 		
+		//display message if stock number is below 5
+		if(list.size() < 5) {
+			JOptionPane.showMessageDialog(null, "Stock items number is below 5!", "Alert", JOptionPane.WARNING_MESSAGE);
+		}
 		
 		add(panel);
 		setTitle("Product Screen");
@@ -21,5 +26,7 @@ public class ProductScreen  extends JFrame{
 		setVisible(true);
 		setLocationRelativeTo(null);
 		setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+		
 	}
+		
 }
