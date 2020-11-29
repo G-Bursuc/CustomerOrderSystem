@@ -40,10 +40,12 @@ public class CustomerScreen extends JFrame{
 			}
 		});
 
-		// add elements to the panel, add panel to the frame and configure frame
+		// add elements to the panel, add panel to the frame
 		panel.add(updateCustButton);
 		panel.add(exitButton);
 		add(panel);
+		
+		// configure frame
 		setTitle("Customer Screen");
 		setSize(580, 600);
 		setVisible(true);
