@@ -26,15 +26,15 @@ public class ProductScreen  extends JFrame{
 		
 		//label and textfields for user input
 		JLabel label = new JLabel("Enter product name: ");
-		JTextField name = new JTextField(50);
+		JTextField name = new JTextField(20);
 		JLabel label2 = new JLabel("Enter brand: ");
-		JTextField brand = new JTextField(50);
+		JTextField brand = new JTextField(20);
 		JLabel label3 = new JLabel("Enter stock: ");
-		JTextField stock = new JTextField(50);
+		JTextField stock = new JTextField(20);
 		JLabel label4 = new JLabel("Enter price amount: ");
-		JTextField price = new JTextField(50);
+		JTextField price = new JTextField(20);
 		JLabel label5 = new JLabel("Enter product ID: ");		
-		JTextField idProduct = new JTextField(50);
+		JTextField idProduct = new JTextField(20);
 		
 		//add button
 		JButton addButton = new JButton("Add Product");
@@ -60,9 +60,9 @@ public class ProductScreen  extends JFrame{
 		panel.add(idProduct);
 		panel.add(addButton);				
 		add(panel);
+		panel.setLayout(new MigLayout ("center center, wrap, gapy 20"));
 		
 		//set frame properties
-		panel.setLayout(new MigLayout ("center center, wrap, gapy 20"));
 		setTitle("Product Screen");
 		setSize(580, 600);
 		setVisible(true);
