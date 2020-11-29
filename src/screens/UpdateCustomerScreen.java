@@ -15,18 +15,19 @@ import net.miginfocom.swing.MigLayout;
 import objects.Customer;
 
 public class UpdateCustomerScreen extends JFrame{
+	// arraylist to store the list of customers
 	ArrayList<Customer> list = null;
 	
 	public UpdateCustomerScreen(ArrayList<Customer> customerList) {
+		// copy given array list into global array list
 		list = customerList;
+		// create elements
 		JPanel panel = new JPanel();
-		// create labels
 		JLabel custListLabel = new JLabel("Choose a Customer ID to Update: ");
 		JLabel custInfoLabel = new JLabel("Edit Customer Details Once Selected:");
 		JLabel custNameLabel = new JLabel("Customer Name: ");
 		JLabel custPhoneLabel = new JLabel("Customer Phone #: ");
 		JLabel custAddrLabel = new JLabel("Customer Address: ");
-		
 		JButton updateCustButton = new JButton("Update Customer Record");
 		JButton exitButton = new JButton("Exit");
 		
@@ -35,20 +36,20 @@ public class UpdateCustomerScreen extends JFrame{
 		JTextField custPhoneField = new JTextField(customerList.get(0).getCustomerPhoneNumber(), 20);
 		JTextField custAddrField = new JTextField(customerList.get(0).getCustomerAddress(), 20);
 		
-		// create an array with customer id's
+		// LIST ALL CUSTOMERS
+		// create an array to be filled with customer ids
 		String[] idList = new String[list.size()];
 		
+		// loop through each customer in the array list, grab their id, convert it to a string and add it to the local array
 		for(int i = 0; i < list.size(); i++)
 		{
-			Customer customer = list.get(i);
-			String id = Integer.toString(customer.getCustomerId());
-			idList[i] = id;
+			idList[i] = Integer.toString(list.get(i).getCustomerId());
 		}
 		
 		// put array into the combo box for user to select a customer
     	JComboBox comboCustomer = new JComboBox(idList);
 		
-    	// when user selects a customer in the combo box, details of customer will be updated in each text field
+    	// action listener for when user selects a customer in the combo box, details of customer will be updated in each text field
 		comboCustomer.addActionListener(new ActionListener () {
 			public void actionPerformed(ActionEvent e) {
 				// create a temporary customer to grab details from, ID's start from 1 so we can assume
@@ -83,6 +84,7 @@ public class UpdateCustomerScreen extends JFrame{
 			}
 		});
     	
+		// add elements to the panel, add panel to the frame and configure miglayout
 		panel.setLayout(new MigLayout("", "275!"));
 		panel.add(custListLabel);
 		panel.add(comboCustomer, "wrap");
@@ -96,6 +98,8 @@ public class UpdateCustomerScreen extends JFrame{
 		panel.add(exitButton);
 		panel.add(updateCustButton);
 		add(panel);
+		
+		// configure frame
 		setTitle("Update A Customer Record");
 		setSize(580, 600);
 		setVisible(true);
