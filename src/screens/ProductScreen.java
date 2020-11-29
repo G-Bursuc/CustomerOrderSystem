@@ -15,11 +15,6 @@ public class ProductScreen  extends JFrame{
 		JPanel panel = new JPanel();
 		
 		
-		//display message if stock number is below 5
-		if(list.size() < 5) {
-			JOptionPane.showMessageDialog(null, "Stock items number is below 5!", "Alert", JOptionPane.WARNING_MESSAGE);
-		}
-		
 		add(panel);
 		setTitle("Product Screen");
 		setSize(580, 600);
@@ -28,5 +23,7 @@ public class ProductScreen  extends JFrame{
 		setDefaultCloseOperation(DISPOSE_ON_CLOSE);
 		
 	}
+	
+	
 		
 }
