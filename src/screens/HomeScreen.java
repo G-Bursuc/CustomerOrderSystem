@@ -1,5 +1,6 @@
 package screens;
 import java.awt.Image;
+
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.image.BufferedImage;
@@ -26,7 +27,7 @@ public class HomeScreen extends JFrame{
 	ArrayList<Order> orderList = new ArrayList<Order>();
 	ArrayList<Supplier> supplierList = new ArrayList<Supplier>();
 	ArrayList<Product> productList = new ArrayList<Product>();
-	
+  
 	public HomeScreen() {
 		// create and setup the panel, buttons and text labels
 		JPanel panel = new JPanel();
@@ -103,7 +104,7 @@ public class HomeScreen extends JFrame{
 		// displays the order window
 		ordersButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				new OrderScreen(orderList);
+				new OrderScreen(customerList, orderList);
 			}
 		});
 		
