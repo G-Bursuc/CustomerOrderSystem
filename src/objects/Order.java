@@ -46,4 +46,14 @@ public class Order {
 	public void setCust(Customer cust) {
 		this.cust = cust;
 	}
+
+	public ArrayList<Product> getProdlist() {
+		return prodlist;
+	}
+
+	public void setProdlist(ArrayList<Product> prodlist) {
+		this.prodlist = prodlist;
+	}
+	
+	
 }
