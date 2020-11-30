@@ -69,9 +69,4 @@ public class ProductScreen  extends JFrame{
 		setLocationRelativeTo(null);
 		setDefaultCloseOperation(DISPOSE_ON_CLOSE);
 	}
-	
-	public static void main(String[] args) {
-		ProductScreen productScreen = new ProductScreen(list);
-		
-	}
 }
