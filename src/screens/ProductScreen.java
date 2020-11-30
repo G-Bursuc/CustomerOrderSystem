@@ -16,6 +16,7 @@ import java.util.Scanner;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
@@ -47,8 +48,36 @@ public class ProductScreen  extends JFrame{
 		//reads data from textfields and creates a product object using the data
 		addButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				Product aProduct = new Product(name.getText(), brand.getText(), Integer.parseInt(stock.getText()), Double.parseDouble(price.getText()), Integer.parseInt(idProduct.getText()));
-				list.add(aProduct);
+				if (name.getText().equals("")) {
+					JOptionPane.showMessageDialog(null, "Product Name is empty", "Error", JOptionPane.ERROR_MESSAGE);
+				}
+				
+				else if (brand.getText().equals("")) {
+					JOptionPane.showMessageDialog(null, "Brand is empty", "Error", JOptionPane.ERROR_MESSAGE);
+				}
+				
+				else if(Integer.parseInt(stock.getText())==0) {
+					JOptionPane.showMessageDialog(null, "Stock is empty", "Error", JOptionPane.ERROR_MESSAGE);
+				}
+				
+				else if(Double.parseDouble(price.getText()) ==0) {
+					JOptionPane.showMessageDialog(null, "Price is empty", "Error", JOptionPane.ERROR_MESSAGE);
+				}
+				
+				else if(Double.parseDouble(price.getText()) ==0) {
+					JOptionPane.showMessageDialog(null, "Price is empty", "Error", JOptionPane.ERROR_MESSAGE);
+				}
+				
+				else if(Integer.parseInt(idProduct.getText())==0) {
+					JOptionPane.showMessageDialog(null, "Product ID is empty", "Error", JOptionPane.ERROR_MESSAGE);
+				}
+				
+				else {
+					Product aProduct = new Product(name.getText(), brand.getText(), Integer.parseInt(stock.getText()), Double.parseDouble(price.getText()), Integer.parseInt(idProduct.getText()));
+					list.add(aProduct);
+					JOptionPane.showMessageDialog(null, "Product has been added", "Information", JOptionPane.INFORMATION_MESSAGE);
+				}
+				
 			}			
 		});
 		

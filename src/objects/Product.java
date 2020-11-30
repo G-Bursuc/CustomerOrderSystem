@@ -7,6 +7,8 @@ package objects;
 
 import java.util.Scanner;
 
+import javax.swing.JOptionPane;
+
 public class Product {
 
 	String name;
@@ -66,4 +68,9 @@ public class Product {
 	    return new String(" Name: " + getName() + "Brand" + brand + " Stock: " + stock + " Price: " + price + "ID: " + idProduct );
 	}
 	
+	public void checkStock() {
+		if(this.stock < 5) {
+			JOptionPane.showMessageDialog(null, "Stock items number is below 5!", "Alert", JOptionPane.WARNING_MESSAGE);
+		}
+	}	
 }
