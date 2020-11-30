@@ -12,13 +12,23 @@ public class Order {
 	Customer cust;
 	int OrderID;
 	int customerID;
+	int orderQuantity;
 
-	public Order(Customer cust, int OrderID, int customerID) {
+	public Order(Customer cust, int OrderID, int customerID, int orderQuantity) {
 		this.cust = cust;
 		this.OrderID = OrderID;
 		this.customerID = customerID;
+		this.orderQuantity = orderQuantity;
 	}
 	
+	public int getOrderQuantity() {
+		return orderQuantity;
+	}
+
+	public void setOrderQuantity(int orderQuantity) {
+		this.orderQuantity = orderQuantity;
+	}
+
 	public int getOrderID() {
 		return OrderID;
 	}
@@ -46,7 +56,6 @@ public class Order {
 	public void setCust(Customer cust) {
 		this.cust = cust;
 	}
-
 	public ArrayList<Product> getProdlist() {
 		return prodlist;
 	}
@@ -54,6 +63,4 @@ public class Order {
 	public void setProdlist(ArrayList<Product> prodlist) {
 		this.prodlist = prodlist;
 	}
-	
-	
 }

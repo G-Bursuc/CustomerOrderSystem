@@ -36,22 +36,26 @@ public class OrderProduct  extends JFrame{
 		//creates label and textfields for user input
 		JFrame frame = new JFrame("Order Products");
 		JPanel p = new JPanel();
+		JLabel orderIDLabel = new JLabel("Enter order ID: ");
+		JTextField orderID = new JTextField(20);
 		JLabel customerIDLabel = new JLabel("Enter customer ID: ");
 		JTextField customerID = new JTextField(20);
 		JLabel productIDLabel = new JLabel("Enter product ID: ");
 		JTextField idProduct = new JTextField(20);
 		JLabel orderLabel = new JLabel("Enter order quantity: ");
-		JTextField quantity = new JTextField(20);
+		JTextField orderQuantity = new JTextField(20);
 		JButton enter = new JButton("Enter");
 		
 		//add elements to the panel and configure miglayout
 		p.setLayout(new MigLayout("", "[grow, fill]", "[grow, fill]"));
+		p.add(orderIDLabel, "wrap, span");
+		p.add(orderID, "wrap, span");
 		p.add(customerIDLabel, "wrap, span");
 		p.add(customerID, "wrap, span");
 		p.add(productIDLabel, "wrap, span");
 		p.add(idProduct, "wrap, span");
 		p.add(orderLabel, "wrap, span");
-		p.add(quantity, "wrap, span");
+		p.add(orderQuantity, "wrap, span");
 		p.add(enter, "wrap, span");
 
 
@@ -62,7 +66,7 @@ public class OrderProduct  extends JFrame{
 						boolean productfound = false;
 						Customer tempCust = null;
 						
-						//if customerid = customerid entered its true
+						//if customerid equals the customerid entered its true
 						for (Customer cust : custlist) {
 							if(cust.getCustomerID() == Integer.parseInt(customerID.getText())) {
 								customerfound = true;
@@ -70,7 +74,7 @@ public class OrderProduct  extends JFrame{
 							}
 						}
 						
-						//if productid = productid entered its true
+						//if productid equals the productid entered its true
 						for(Product prod: prodlist) {
 							if(prod.getIdProduct() == Integer.parseInt(idProduct.getText())) {
 								productfound = true;
@@ -78,10 +82,40 @@ public class OrderProduct  extends JFrame{
 						}
 						
 						//if customer and productfound are true then create an order object and add to list
-						for(Order ord: ordlist) {
 							if (customerfound = true && (productfound = true)) {
-								Order anOrder = new Order(tempCust, Integer.parseInt(idProduct.getText()), Integer.parseInt(customerID.getText()));
+								Order anOrder = new Order(tempCust, Integer.parseInt(orderID.getText()), Integer.parseInt(customerID.getText()), Integer.parseInt(orderQuantity.getText()));
 								ordlist.add(anOrder);
+							
+							// for every order in the orderlist 
+							for (Order ord: ordlist) {	
+								
+								// arraylist of numbers that will store order quantity entered
+								int[] quantities = new int[quantities.length];	
+								
+								// for each product in the product list 
+								for (Product prod: prodlist) {
+									
+								// for every order quantity in the arraylist quantities add the user inputted 
+								// order quantity to the array
+								for (int i = 0; i < quantities.length; i++) {
+									quantities[i] = Integer.parseInt(orderQuantity.getText());
+									
+									//if stock is less than quantity, the quantity becomes the stock and stock
+									// becomes 0
+									if(prod.getStock() < Integer.parseInt(orderQuantity.getText()))
+										{
+											quantities[i] = prod.getStock();
+											prod.setStock(0);
+											// call checkstock method
+											prod.checkStock();
+										}
+									else 
+									{
+										JOptionPane.showMessageDialog(null, "Order has been added", "Information", JOptionPane.INFORMATION_MESSAGE);
+									}
+									
+								}							
+							}
 							}
 						}
 						

@@ -7,6 +7,8 @@ package objects;
 
 import javax.swing.JOptionPane;
 
+import javax.swing.JOptionPane;
+
 public class Product {
 
 	String name;
@@ -65,7 +67,6 @@ public class Product {
 	public String toString(){
 	    return new String(" Name: " + getName() + "Brand" + brand + " Stock: " + stock + " Price: " + price + "ID: " + idProduct );
 	}
-	
 	//display message if stock number is below 5
 	public void checkStock() {
 		if(this.stock < 5) {
