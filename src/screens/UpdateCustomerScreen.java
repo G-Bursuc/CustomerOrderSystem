@@ -1,3 +1,11 @@
+/*
+ * Class Name: UpdateCustomerScreen.java
+ * Class Description: This class allows the user to select a customer record, 
+ * update any details about the customer and apply the changes made
+ * back into the system.
+ * Created By: George Bursuc (C18399946)
+ */
+
 package screens;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
