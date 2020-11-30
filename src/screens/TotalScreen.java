@@ -74,7 +74,7 @@ public class TotalScreen extends JFrame{
 					//for each order in the list order list
 					for (Order ord : ordlist) {
 						//if the customer associated with that order matches the ID entered by the user
-						if(ord.getCustomer().getCustomerID() == Integer.parseInt(custID.getText())) {
+						if(ord.getCust().getCustomerID() == Integer.parseInt(custID.getText())) {
 							//set the total cost equal to the price of that product
 							totalDue = ord.getProduct().getPrice();
 							ordfound = true;

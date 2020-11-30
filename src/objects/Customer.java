@@ -15,7 +15,7 @@ public class Customer {
 	private static int uniqueID=1;
 	
 	public Customer() {
-		this.customerID = createID();
+		
 	}
 	
 	public Customer(String name, String phNumber, String address) {

@@ -60,11 +60,13 @@ public class OrderProduct  extends JFrame{
 					public void actionPerformed(ActionEvent e) {
 						boolean customerfound = false;
 						boolean productfound = false;
+						Customer tempCust = null;
 						
 						//if customerid = customerid entered its true
 						for (Customer cust : custlist) {
 							if(cust.getCustomerID() == Integer.parseInt(customerID.getText())) {
 								customerfound = true;
+								tempCust = cust;
 							}
 						}
 						
@@ -78,7 +80,7 @@ public class OrderProduct  extends JFrame{
 						//if customer and productfound are true then create an order object and add to list
 						for(Order ord: ordlist) {
 							if (customerfound = true && (productfound = true)) {
-								Order anOrder = new Order(cust, orderID, customerID);
+								Order anOrder = new Order(tempCust, Integer.parseInt(idProduct.getText()), Integer.parseInt(customerID.getText()));
 								ordlist.add(anOrder);
 							}
 						}

@@ -51,7 +51,7 @@ public class UpdateCustomerScreen extends JFrame{
 		// loop through each customer in the array list, grab their id, convert it to a string and add it to the local array
 		for(int i = 0; i < list.size(); i++)
 		{
-			idList[i] = Integer.toString(list.get(i).getCustomerId());
+			idList[i] = Integer.toString(list.get(i).getCustomerID());
 		}
 		
 		// put array into the combo box for user to select a customer
@@ -77,8 +77,11 @@ public class UpdateCustomerScreen extends JFrame{
 				// set a variable to store the customer id/position
 				int position = Integer.parseInt((String) comboCustomer.getSelectedItem()) - 1;
 				// create a temporary customer with new details user put in
-				Customer tempCust = new Customer(position + 1, custNameField.getText(), custPhoneField.getText(),
-						custAddrField.getText());
+				Customer tempCust = new Customer();
+				tempCust.setCustomerID(position + 1);
+				tempCust.setCustomerName(custNameField.getText());
+				tempCust.setCustomerAddress(custAddrField.getText());
+				tempCust.setCustomerPhoneNumber(custPhoneField.getText());
 				// replace customer in the arraylist with new customer
 				list.set(position, tempCust);
 				JOptionPane.showMessageDialog(null, "Customer Has Been Updated", "Information", JOptionPane.INFORMATION_MESSAGE);

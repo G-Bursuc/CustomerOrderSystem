@@ -52,7 +52,7 @@ public class UpdateSupplierScreen extends JFrame{
 		for(int i = 0; i < list.size(); i++)
 		{
 			Supplier supplier = list.get(i);
-			String id = Integer.toString(supplier.getSupplierId());
+			String id = Integer.toString(supplier.getSupplierID());
 			idList[i] = id;
 		}
 
@@ -79,8 +79,11 @@ public class UpdateSupplierScreen extends JFrame{
 				// set a variable to store the supplier id/position
 				int position = Integer.parseInt((String) comboSupplier.getSelectedItem()) - 1;
 				// create a temporary supplier with new details user put in
-				Supplier tempSuppl = new Supplier(position + 1, supplNameField.getText(), supplPhoneField.getText(),
-						supplAddrField.getText());
+				Supplier tempSuppl = new Supplier();
+				tempSuppl.setSupplierID(position + 1);
+				tempSuppl.setSupplierName(supplNameField.getText());
+				tempSuppl.setSupplierAddress(supplAddrField.getText());
+				tempSuppl.setSupplierPhoneNumber(supplPhoneField.getText());
 				// replace supplier in the arraylist with new supplier
 				list.set(position, tempSuppl);
 				JOptionPane.showMessageDialog(null, "Supplier Has Been Updated", "Information", JOptionPane.INFORMATION_MESSAGE);

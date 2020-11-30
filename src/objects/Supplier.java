@@ -17,7 +17,7 @@ public class Supplier {
 	private static int uniqueID=1;
 	
 	public Supplier() {
-		this.supplierID = createID();
+		
 	}
 	
 	public Supplier(String name, String number, String address) {
