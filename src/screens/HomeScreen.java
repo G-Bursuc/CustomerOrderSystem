@@ -1,5 +1,14 @@
+/*
+ * Class Name: HomeScreen.java
+ * Description: This class houses the main page the user sees when first launching the program.
+ * It allows the user to select various options to maintain the information in the system such as
+ * customers, suppliers, orders and products.
+ * 
+ */
+
 package screens;
 import java.awt.Image;
+
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.image.BufferedImage;
@@ -26,24 +35,20 @@ public class HomeScreen extends JFrame{
 	ArrayList<Order> orderList = new ArrayList<Order>();
 	ArrayList<Supplier> supplierList = new ArrayList<Supplier>();
 	ArrayList<Product> productList = new ArrayList<Product>();
-	
+  
 	public HomeScreen() {
 		// create and setup the panel, buttons and text labels
 		JPanel panel = new JPanel();
 		JButton homeButton = new JButton("Home");
 		JButton customerButton = new JButton("Customers");
 		JButton supplierButton = new JButton("Suppliers");
-		JButton stockButton = new JButton("Stock");
+		JButton stockButton = new JButton("Products");
 		JButton ordersButton = new JButton("Orders");	
 		JButton exitButton = new JButton("Exit");
-		JLabel label1 = new JLabel();
-		JLabel label2 = new JLabel();
-		JLabel label3 = new JLabel();
-		JLabel label4 = new JLabel();
-		label1.setText("<html><body><p>My name is George and I love to code!</p></body></html>");
-		label2.setText("<html><body><p>I'm Iuliana and I'm friendly and organised!</p></body></html>");
-		label3.setText("<html><body><p>Hey Josh here, always up for hard work!</p></body></html>");
-		label4.setText("<html><body><p>My name is Tami and I like to get things done!</p></body></html>");
+		JLabel label1 = new JLabel("<html><body><p>My name is George and I love to code!</p></body></html>");
+		JLabel label2 = new JLabel("<html><body><p>I'm Iuliana and I'm friendly and organised!</p></body></html>");
+		JLabel label3 = new JLabel("<html><body><p>Hey Josh here, always up for hard work!</p></body></html>");
+		JLabel label4 = new JLabel("<html><body><p>My name is Tami and I like to get things done!</p></body></html>");
 		
 		// create and setup the pictures
 		BufferedImage myPicture = null; // used to read the image on disk
@@ -132,7 +137,7 @@ public class HomeScreen extends JFrame{
 		panel.add(label4, "align center");
 		add(panel);
 		
-		// set frame properties
+		// configure frame
 		setTitle("Control Management System");
 		setSize(580, 600);
 		setVisible(true);

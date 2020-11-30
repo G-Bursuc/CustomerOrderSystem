@@ -1,3 +1,9 @@
+/*
+ * Class Name: OrderScreen.java
+ * Description: This class allows the user to create an order and view the total cost of an order for a certain customer
+ * Created by: Iuliana Attl (C18379476) & Tami Adeduntan (C18327556)
+ */
+
 package screens;
 
 import objects.Customer;
@@ -18,12 +24,12 @@ import javax.swing.JTextField;
 import net.miginfocom.swing.MigLayout;
 
 public class OrderScreen  extends JFrame{
-	ArrayList<Order> list = null;
+	ArrayList<Order> orderlist = null;
 	ArrayList<Customer> custlist = null;
 	ArrayList<Product> prodlist = null;
 	
 	public OrderScreen(ArrayList<Customer> customerList, ArrayList<Order> orderList, ArrayList<Product> productList) {
-		list = orderList;
+		orderlist = orderList;
 		custlist = customerList;
 		prodlist = productList;
 		
@@ -35,13 +41,13 @@ public class OrderScreen  extends JFrame{
 		//action listener for when the total button is clicked
 		seeTotal.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				new TotalScreen(custlist, list);
+				new TotalScreen(custlist, orderlist);
 			}
 		});
 		
 		orderProduct.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				new OrderProduct(custlist, list, prodlist);
+				new OrderProduct(custlist, orderlist, prodlist);
 			}
 		});
 		

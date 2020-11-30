@@ -70,6 +70,7 @@ public class OrderProduct  extends JFrame{
 						for (Customer cust : custlist) {
 							if(cust.getCustomerID() == Integer.parseInt(customerID.getText())) {
 								customerfound = true;
+								tempCust = cust;
 							}
 						}
 						

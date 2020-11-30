@@ -92,7 +92,7 @@ public class ProductScreen  extends JFrame{
 		panel.add(price);
 		panel.add(label5);
 		panel.add(idProduct);
-		panel.add(addButton);				
+		panel.add(addButton);
 		add(panel);
 		panel.setLayout(new MigLayout ("center center, wrap, gapy 20"));
 		
@@ -102,5 +102,6 @@ public class ProductScreen  extends JFrame{
 		setVisible(true);
 		setLocationRelativeTo(null);
 		setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+		
 	}
 }
