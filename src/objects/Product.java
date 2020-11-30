@@ -22,6 +22,7 @@ public class Product {
         this.name = name;
         this.brand = brand;
         this.price = price;		
+        this.stock = stock;
 	}
 
 	public String getName() {
@@ -41,7 +42,7 @@ public class Product {
 	}
 
 	public int getStock() {
-		return stock;
+		return this.stock;
 	}
 
 	public void setStock(int stock) {
@@ -70,7 +71,7 @@ public class Product {
 	//display message if stock number is below 5
 	public void checkStock() {
 		if(this.stock < 5) {
-			JOptionPane.showMessageDialog(null, "Stock items number is below 5!", "Alert", JOptionPane.WARNING_MESSAGE);
+			JOptionPane.showMessageDialog(null, "Stock item: " + this.name + " stock number is below 5!", "Alert", JOptionPane.WARNING_MESSAGE);
 		}
 	}
 }

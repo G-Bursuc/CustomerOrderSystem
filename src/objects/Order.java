@@ -8,17 +8,18 @@ package objects;
 import java.util.ArrayList;
 
 public class Order {
-	ArrayList<Product> prodlist = null;	
+	Product product;	
 	Customer cust;
 	int OrderID;
 	int customerID;
 	int orderQuantity;
 
-	public Order(Customer cust, int OrderID, int customerID, int orderQuantity) {
+	public Order(Customer cust, Product prod, int OrderID, int customerID, int orderQuantity) {
 		this.cust = cust;
 		this.OrderID = OrderID;
 		this.customerID = customerID;
 		this.orderQuantity = orderQuantity;
+		this.product = prod;
 	}
 	
 	public int getOrderQuantity() {
@@ -56,11 +57,11 @@ public class Order {
 	public void setCust(Customer cust) {
 		this.cust = cust;
 	}
-	public ArrayList<Product> getProdlist() {
-		return prodlist;
+	public Product getProduct() {
+		return product;
 	}
 
-	public void setProdlist(ArrayList<Product> prodlist) {
-		this.prodlist = prodlist;
+	public void setProduct(Product product) {
+		this.product = product;
 	}
 }

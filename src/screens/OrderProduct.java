@@ -27,12 +27,12 @@ public class OrderProduct  extends JFrame{
 	ArrayList<Customer> custlist = null;
 	ArrayList<Order> ordlist = null;
 	ArrayList<Product> prodlist = null;
-	
+
 	public OrderProduct(ArrayList<Customer> customerList, ArrayList<Order> orderList, ArrayList<Product> productList) {
 		custlist = customerList;
 		ordlist = orderList;
 		prodlist = productList;
-		
+
 		//creates label and textfields for user input
 		JFrame frame = new JFrame("Order Products");
 		JPanel p = new JPanel();
@@ -45,7 +45,7 @@ public class OrderProduct  extends JFrame{
 		JLabel orderLabel = new JLabel("Enter order quantity: ");
 		JTextField orderQuantity = new JTextField(20);
 		JButton enter = new JButton("Enter");
-		
+
 		//add elements to the panel and configure miglayout
 		p.setLayout(new MigLayout("", "[grow, fill]", "[grow, fill]"));
 		p.add(orderIDLabel, "wrap, span");
@@ -60,83 +60,73 @@ public class OrderProduct  extends JFrame{
 
 
 		//order button
-				enter.addActionListener(new ActionListener() {
-					public void actionPerformed(ActionEvent e) {
-						boolean customerfound = false;
-						boolean productfound = false;
-						Customer tempCust = null;
+		enter.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				boolean customerfound = false;
+				boolean productfound = false;
+				Customer tempCust = null;
+				Product tempProd = null;
+
+				//if customerid equals the customerid entered its true
+				for (Customer cust : custlist) {
+					if(cust.getCustomerID() == Integer.parseInt(customerID.getText())) {
+						customerfound = true;
+						tempCust = cust;
+					}
+				}
+
+				//if productid equals the productid entered its true
+				for(Product prod: prodlist) {
+					if(prod.getIdProduct() == Integer.parseInt(idProduct.getText())) {
+						productfound = true;
+						tempProd = prod;
+					}
+				}
+
+				//if customer and product found are true then create an order object and add to list
+				if (customerfound = true && (productfound = true)) {
+					int quantity = Integer.parseInt(orderQuantity.getText());
+					Order anOrder = new Order(tempCust, tempProd, Integer.parseInt(orderID.getText()), Integer.parseInt(customerID.getText()), quantity);
+					ordlist.add(anOrder);
+					// for each product in the product list 
+					for (Product prod: prodlist) {
+						//if stock is less than quantity, the quantity becomes the stock and stock
+						// becomes 0
 						
-						//if customerid equals the customerid entered its true
-						for (Customer cust : custlist) {
-							if(cust.getCustomerID() == Integer.parseInt(customerID.getText())) {
-								customerfound = true;
-								tempCust = cust;
-							}
+						if(prod.getStock() < quantity)
+						{
+							prod.setStock(0);
 						}
-						
-						//if productid equals the productid entered its true
-						for(Product prod: prodlist) {
-							if(prod.getIdProduct() == Integer.parseInt(idProduct.getText())) {
-								productfound = true;
-							}
-						}
-						
-						//if customer and productfound are true then create an order object and add to list
-							if (customerfound = true && (productfound = true)) {
-								Order anOrder = new Order(tempCust, Integer.parseInt(orderID.getText()), Integer.parseInt(customerID.getText()), Integer.parseInt(orderQuantity.getText()));
-								ordlist.add(anOrder);
-							
-							// for every order in the orderlist 
-							for (Order ord: ordlist) {	
-								
-								// arraylist of numbers that will store order quantity entered
-								int[] quantities = new int[quantities.length];	
-								
-								// for each product in the product list 
-								for (Product prod: prodlist) {
-									
-								// for every order quantity in the arraylist quantities add the user inputted 
-								// order quantity to the array
-								for (int i = 0; i < quantities.length; i++) {
-									quantities[i] = Integer.parseInt(orderQuantity.getText());
-									
-									//if stock is less than quantity, the quantity becomes the stock and stock
-									// becomes 0
-									if(prod.getStock() < Integer.parseInt(orderQuantity.getText()))
-										{
-											quantities[i] = prod.getStock();
-											prod.setStock(0);
-											// call checkstock method
-											prod.checkStock();
-										}
-									else 
-									{
-										JOptionPane.showMessageDialog(null, "Order has been added", "Information", JOptionPane.INFORMATION_MESSAGE);
-									}
-									
-								}							
-							}
-							}
-						}
-						
-						if (customerfound == false) {
-							JOptionPane.showMessageDialog(null, "This customer does not exist", "Alert", JOptionPane.WARNING_MESSAGE);
+						else 
+						{
+							JOptionPane.showMessageDialog(null, "Order has been added", "Information", JOptionPane.INFORMATION_MESSAGE);
+							prod.setStock(prod.getStock() - quantity);
 						}
 
-						else if (productfound == false) {
-							JOptionPane.showMessageDialog(null, "This product does not exist", "Alert", JOptionPane.WARNING_MESSAGE);
-						}
-						
-					}
-				});
-				add(p);
-				
-				//frame properties
-				setTitle("Order Product");
-				setSize(250, 200);
-				setVisible(true);
-				setLocationRelativeTo(null);
-				setDefaultCloseOperation(DISPOSE_ON_CLOSE);		
+						// call checkstock method
+						prod.checkStock();
+						break;
+					}							
+				}
+
+				if (customerfound == false) {
+					JOptionPane.showMessageDialog(null, "This customer does not exist", "Alert", JOptionPane.WARNING_MESSAGE);
+				}
+
+				else if (productfound == false) {
+					JOptionPane.showMessageDialog(null, "This product does not exist", "Alert", JOptionPane.WARNING_MESSAGE);
+				}
+
+			}
+		});
+		add(p);
+
+		//frame properties
+		setTitle("Order Product");
+		setSize(250, 300);
+		setVisible(true);
+		setLocationRelativeTo(null);
+		setDefaultCloseOperation(DISPOSE_ON_CLOSE);		
 	}
 
 }
