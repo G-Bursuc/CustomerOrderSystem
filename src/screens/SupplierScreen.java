@@ -1,3 +1,10 @@
+/*
+ * Class Name: SupplierScreen.java
+ * Description: This GUI class allows the user to create or update (the details of) a supplier
+ * Created by: Joshua Chukwuezi (C18709101)
+ * 
+ */
+
 package screens;
 
 import objects.Supplier;
@@ -27,6 +34,12 @@ public class SupplierScreen extends JFrame{
 		createBtn.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				new CreateSupplierScreen(supplierList);
+			}
+		});
+		
+		updateBtn.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
 			}
 		});
 		

@@ -1,3 +1,11 @@
+/*
+ * Class Name: CreateSupplierScreen.java
+ * Description: This GUI class allows the user to create a supplier by entering their details
+ * Created by: Joshua Chukwuezi (C18709101)
+ * 
+ */
+
+
 package screens;
 
 import java.awt.event.ActionEvent;
@@ -45,7 +53,7 @@ public class CreateSupplierScreen extends JFrame {
 		//frame for dialog
 		JFrame jf = new JFrame();
 		
-		//button adds customers to customer list
+		//button adds supplier to customer list
 		submitButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
@@ -62,16 +70,16 @@ public class CreateSupplierScreen extends JFrame {
 				}
 				
 				else {
-						//create new customer
+						//create new supplier
 						String supName = supplierNameField.getText();
 						String supNum = supplierNumberField.getText();
 						String supAdd = supplierAddressField.getText();
 						
-						//creates new customer
+						//creates new supplier
 						Supplier aSupplier = new Supplier(supName, supNum, supAdd);
 
 						
-						//adds the customer to the list
+						//adds the supplier to the list
 						supplierList.add(aSupplier);
 						
 						
@@ -80,7 +88,7 @@ public class CreateSupplierScreen extends JFrame {
 						bottomArea.setText(existingCustomers + "\n" + aSupplier.toString());
 				
 						
-						//customerIdField.setText("");
+
 						supplierNameField.setText("");
 						supplierNumberField.setText("");
 						supplierAddressField.setText("");		

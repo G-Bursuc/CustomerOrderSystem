@@ -1,3 +1,11 @@
+/*
+ * Class Name: CustomerScreen.java
+ * Description: This GUI class allows the user to create or update (the details of) a customer
+ * Created by: Joshua Chukwuezi (C18709101)
+ * 
+ */
+
+
 package screens;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;

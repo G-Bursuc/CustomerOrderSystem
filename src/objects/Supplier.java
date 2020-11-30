@@ -1,3 +1,11 @@
+/*
+ * Class Name: Supplier.java
+ * Description: This class is the blueprint used to create supplier objects 
+ * Created by: Joshua Chukwuezi (C18709101)
+ * 
+ */
+
+
 package objects;
 
 public class Supplier {
@@ -57,10 +65,10 @@ public class Supplier {
 	
 	public String toString() {
 		return
-				"\nCustomer ID: " + this.supplierID 
-				+ "\nCustomer Name: " + this.supplierName
-				+ "\nCustomer Number: " + this.supplierPhoneNumber
-				+ "\nCustomer Address: " + this.supplierAddress;
+				"\nSupplier ID: " + this.supplierID 
+				+ "\nSupplier Name: " + this.supplierName
+				+ "\nSupplier Number: " + this.supplierPhoneNumber
+				+ "\nSupplier Address: " + this.supplierAddress;
 	}
 	
 	
