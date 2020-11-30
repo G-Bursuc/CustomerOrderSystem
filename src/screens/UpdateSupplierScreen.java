@@ -1,3 +1,11 @@
+/*
+ * Class Name: UpdateSupplierScreen.java
+ * Class Description: This class allows the user to select a supplier record, 
+ * update any details about the supplier and apply the changes made
+ * back into the system.
+ * Created By: George Bursuc (C18399946)
+ */
+
 package screens;
 
 import java.awt.event.ActionEvent;
