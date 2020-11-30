@@ -28,7 +28,7 @@ public class CreateSupplierScreen extends JFrame {
 		JLabel supplierNameLbl = new JLabel("Enter Supplier Name");
 		JTextField supplierNameField = new JTextField(20);
 		
-		JLabel supplierNumberLbl = new JLabel("Enter Supplier Number");
+		JLabel supplierNumberLbl = new JLabel("Enter Supplier Phone Number");
 		JTextField supplierNumberField = new JTextField(20);
 		
 		JLabel supplierAddressLbl = new JLabel("Enter Supplier Address");

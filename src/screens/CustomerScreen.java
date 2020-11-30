@@ -1,7 +1,7 @@
 /*
  * Class Name: CustomerScreen.java
  * Description: This GUI class allows the user to create or update (the details of) a customer
- * Created by: Joshua Chukwuezi (C18709101)
+ * Created by: Joshua Chukwuezi (C18709101) & George Bursuc (C18399946)
  * 
  */
 

@@ -25,7 +25,7 @@ public class CreateCustomerScreen extends JFrame {
 		JLabel customerNameLbl = new JLabel("Enter Customer Name");
 		JTextField customerNameField = new JTextField(20);
 		
-		JLabel customerNumberLbl = new JLabel("Enter Customer Number");
+		JLabel customerNumberLbl = new JLabel("Enter Customer Phone Number");
 		JTextField customerNumberField = new JTextField(20);
 		
 		JLabel customerAddressLbl = new JLabel("Enter Customer Address");
