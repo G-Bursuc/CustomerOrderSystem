@@ -104,7 +104,7 @@ public class HomeScreen extends JFrame{
 		// displays the order window
 		ordersButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				new OrderScreen(customerList, orderList);
+				new OrderScreen(customerList, orderList, productList);
 			}
 		});
 		

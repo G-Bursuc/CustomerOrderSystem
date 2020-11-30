@@ -57,6 +57,9 @@ public class Customer {
 		return customerAddress;
 	}
 
+	public void setCustomerAddress(String customerAddress) {
+		this.customerAddress = customerAddress;
+	}
 
 	public String toString() {
 		return
@@ -65,5 +68,4 @@ public class Customer {
 				+ "\nCustomer Number: " + this.customerPhoneNumber
 				+ "\nCustomer Address: " + this.customerAddress;
 	}
-	
 }

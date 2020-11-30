@@ -2,6 +2,7 @@ package screens;
 
 import objects.Customer;
 import objects.Order;
+import objects.Product;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -19,14 +20,17 @@ import net.miginfocom.swing.MigLayout;
 public class OrderScreen  extends JFrame{
 	ArrayList<Order> list = null;
 	ArrayList<Customer> custlist = null;
+	ArrayList<Product> prodlist = null;
 	
-	public OrderScreen(ArrayList<Customer> customerList, ArrayList<Order> orderList) {
+	public OrderScreen(ArrayList<Customer> customerList, ArrayList<Order> orderList, ArrayList<Product> productList) {
 		list = orderList;
 		custlist = customerList;
+		prodlist = productList;
+		
 		JPanel panel = new JPanel();
 		
-		//total button
 		JButton seeTotal = new JButton("Total");
+		JButton orderProduct = new JButton("Order Product");
 		
 		//action listener for when the total button is clicked
 		seeTotal.addActionListener(new ActionListener() {
@@ -34,8 +38,15 @@ public class OrderScreen  extends JFrame{
 				new TotalScreen(custlist, list);
 			}
 		});
-			
+		
+		orderProduct.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				new OrderProduct(custlist, list, prodlist);
+			}
+		});
+		
 		panel.add(seeTotal);
+		panel.add(orderProduct);
 		add(panel);
 		setTitle("Order Screen");
 		setSize(580, 600);
