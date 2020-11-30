@@ -29,6 +29,10 @@ public class HomeScreen extends JFrame{
 	ArrayList<Product> productList = new ArrayList<Product>();
 
 	public HomeScreen() {
+
+		customerList.add(new Customer(1, "one", "one", "one"));
+		customerList.add(new Customer(2, "two", "two", "two"));
+		customerList.add(new Customer(3, "three", "three", "three"));
 		// create and setup the panel, buttons and text labels
 		JPanel panel = new JPanel();
 		JButton homeButton = new JButton("Home");
