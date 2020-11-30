@@ -1,5 +1,6 @@
 package screens;
 import java.awt.Image;
+
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.image.BufferedImage;
@@ -26,14 +27,14 @@ public class HomeScreen extends JFrame{
 	ArrayList<Order> orderList = new ArrayList<Order>();
 	ArrayList<Supplier> supplierList = new ArrayList<Supplier>();
 	ArrayList<Product> productList = new ArrayList<Product>();
-	
+  
 	public HomeScreen() {
 		// create and setup the panel, buttons and text labels
 		JPanel panel = new JPanel();
 		JButton homeButton = new JButton("Home");
 		JButton customerButton = new JButton("Customers");
 		JButton supplierButton = new JButton("Suppliers");
-		JButton stockButton = new JButton("Stock");
+		JButton stockButton = new JButton("Products");
 		JButton ordersButton = new JButton("Orders");	
 		JButton exitButton = new JButton("Exit");
 		JLabel label1 = new JLabel();
@@ -132,7 +133,7 @@ public class HomeScreen extends JFrame{
 		panel.add(label4, "align center");
 		add(panel);
 		
-		// set frame properties
+		// configure frame
 		setTitle("Control Management System");
 		setSize(580, 600);
 		setVisible(true);
