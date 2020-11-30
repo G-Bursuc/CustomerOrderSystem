@@ -66,5 +66,4 @@ public class Customer {
 				+ "\nCustomer Address: " + this.customerAddress;
 	}
 	
-	
 }

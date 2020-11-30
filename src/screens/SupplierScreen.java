@@ -16,39 +16,61 @@ import java.util.ArrayList;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 import net.miginfocom.swing.MigLayout;
 
 public class SupplierScreen extends JFrame{
+	// arraylist to store the list of customers
 	ArrayList<Supplier> list = null;
-	
+
 	public SupplierScreen(ArrayList<Supplier> supplierList) {
+		// copy given array list into global array list
 		list = supplierList;
+
+		// create elements
 		JPanel panel = new JPanel();
-		
-		JLabel mainLbl = new JLabel("Choose an option to start");
+		JButton updateSupplButton = new JButton("Update A Supplier Record");
+		JButton exitButton = new JButton("Exit");
+    JLabel mainLbl = new JLabel("Choose an option to start");
 		JButton createBtn = new JButton("CREATE SUPPLIER");
-		JButton updateBtn = new JButton("UPDATE SUPPLIER");
-		
-		createBtn.addActionListener(new ActionListener() {
+    
+    // configure button to bring user to create a supplier record
+    createBtn.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				new CreateSupplierScreen(supplierList);
 			}
 		});
-		
-		updateBtn.addActionListener(new ActionListener() {
+    
+		// configure button to bring user to update a supplier record
+		updateSupplButton.addActionListener(new ActionListener() {
+			// check if customers exist in the arraylist
 			public void actionPerformed(ActionEvent e) {
-				
+				// check if customers exist in the arraylist
+				if (!list.isEmpty())
+					new UpdateSupplierScreen(list);
+				else // if arraylist is empty then show a popup warning
+					JOptionPane.showMessageDialog(null, "Access Denied, No Suppliers Exist in the System", "Alert", JOptionPane.WARNING_MESSAGE);
 			}
 		});
-		
-		
-		panel.setLayout(new MigLayout());
+
+		// configure button to exit the window
+		exitButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				dispose();
+			}
+		});
+
+		// add elements to the panel, add panel to the frame
+    panel.setLayout(new MigLayout());
 		panel.add(mainLbl, "wrap");
 		panel.add(createBtn, "wrap");
-		panel.add(updateBtn);
+		panel.add(updateSupplButton, "wrap");
+		panel.add(exitButton);
 		add(panel);
+		
+		// configure frame
 		setTitle("Supplier Screen");
 		setSize(580, 600);
 		setVisible(true);
