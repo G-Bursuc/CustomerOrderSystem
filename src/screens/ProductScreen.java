@@ -1,3 +1,8 @@
+/* Class Name: ProductScreen.java
+ * Class Description: This class displays the product screen and 
+ * allows the user to enter the product details.
+ * Created By: Tami Adeduntan (C18327556)
+ */
 package screens;
 
 import objects.Product;

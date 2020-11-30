@@ -1,3 +1,8 @@
+/* Class Name: Product.java
+ * Class Description: This class creates the Product and all its details.
+ * Created By: Tami Adeduntan (C18327556)
+ */
+
 package objects;
 
 import java.util.Scanner;

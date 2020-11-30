@@ -1,3 +1,9 @@
+/* Class Name: OrderProduct.java
+ * Class Description: This class displays the order product screen and 
+ * allows a valid customer to order a product from the list of products available.
+ * Created By: Tami Adeduntan (C18327556)
+ */
+
 package screens;
 
 import objects.Customer;
@@ -27,19 +33,25 @@ public class OrderProduct  extends JFrame{
 		ordlist = orderList;
 		prodlist = productList;
 		
+		//creates label and textfields for user input
 		JFrame frame = new JFrame("Order Products");
 		JPanel p = new JPanel();
 		JLabel customerIDLabel = new JLabel("Enter customer ID: ");
 		JTextField customerID = new JTextField(20);
 		JLabel productIDLabel = new JLabel("Enter product ID: ");
 		JTextField idProduct = new JTextField(20);
+		JLabel orderLabel = new JLabel("Enter order quantity: ");
+		JTextField quantity = new JTextField(20);
 		JButton enter = new JButton("Enter");
 		
+		//add elements to the panel and configure miglayout
 		p.setLayout(new MigLayout("", "[grow, fill]", "[grow, fill]"));
 		p.add(customerIDLabel, "wrap, span");
 		p.add(customerID, "wrap, span");
 		p.add(productIDLabel, "wrap, span");
 		p.add(idProduct, "wrap, span");
+		p.add(orderLabel, "wrap, span");
+		p.add(quantity, "wrap, span");
 		p.add(enter, "wrap, span");
 
 
@@ -48,22 +60,25 @@ public class OrderProduct  extends JFrame{
 					public void actionPerformed(ActionEvent e) {
 						boolean customerfound = false;
 						boolean productfound = false;
-
+						
+						//if customerid = customerid entered its true
 						for (Customer cust : custlist) {
 							if(cust.getCustomerID() == Integer.parseInt(customerID.getText())) {
 								customerfound = true;
 							}
 						}
-
+						
+						//if productid = productid entered its true
 						for(Product prod: prodlist) {
 							if(prod.getIdProduct() == Integer.parseInt(idProduct.getText())) {
 								productfound = true;
 							}
 						}
 						
-						for(Product prod: prodlist) {
+						//if customer and productfound are true then create an order object and add to list
+						for(Order ord: ordlist) {
 							if (customerfound = true && (productfound = true)) {
-								Order anOrder = new Order(prod.getIdProduct(), prod.getName(), prod);
+								Order anOrder = new Order(cust, orderID, customerID);
 								ordlist.add(anOrder);
 							}
 						}

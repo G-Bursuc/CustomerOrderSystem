@@ -1,37 +1,49 @@
+/* Class Name: Order.java
+ * Class Description: This class creates the Order and all its details.
+ * Created By: Tami Adeduntan (C18327556)
+ */
+
 package objects;
 
+import java.util.ArrayList;
+
 public class Order {
-	private String name;
-	private int idProduct;
-	private Product prod;
+	ArrayList<Product> prodlist = null;	
+	Customer cust;
+	int OrderID;
+	int customerID;
 
-	public Order(int idProduct, String name, Product prod) {
-		this.name = name;
-		this.idProduct = idProduct;
-		this.prod = prod;
+	public Order(Customer cust, int OrderID, int customerID) {
+		this.cust = cust;
+		this.OrderID = OrderID;
+		this.customerID = customerID;
+	}
+	
+	public int getOrderID() {
+		return OrderID;
 	}
 
-	public String getName() {
-		return name;
+	public void setOrderID(int orderID) {
+		OrderID = orderID;
 	}
 
-	public void setName(String name) {
-		this.name = name;
+	public int getCustomerID() {
+		return customerID;
 	}
 
-	public int getIdProduct() {
-		return idProduct;
+	public void setCustomerID(int customerID) {
+		this.customerID = customerID;
 	}
 
-	public void setIdProduct(int idProduct) {
-		this.idProduct = idProduct;
+	public Order(Customer cust) {
+		this.cust = cust;
+	}
+	
+	public Customer getCust() {
+		return cust;
 	}
 
-	public Product getProd() {
-		return prod;
-	}
-
-	public void setProd(Product prod) {
-		this.prod = prod;
+	public void setCust(Customer cust) {
+		this.cust = cust;
 	}
 }
